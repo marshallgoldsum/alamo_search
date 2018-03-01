@@ -54,13 +54,10 @@ public class PlacesMapActivity extends FragmentActivity implements OnMapReadyCal
         LatLng austin_center = new LatLng(30.2672, -97.7431);
         mMap.addMarker(new MarkerOptions().position(austin_center).title(getString(R.string.austin)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(austin_center));
-        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-            @Override
-            public void onInfoWindowClick(Marker marker) {
-                if (marker.getTag() != null) {
-                    String placeId = (String) marker.getTag();
-                    launchDetailsActivity(placeId);
-                }
+        mMap.setOnInfoWindowClickListener(marker -> {
+            if (marker.getTag() != null) {
+                String placeId = (String) marker.getTag();
+                launchDetailsActivity(placeId);
             }
         });
         PlacesViewModel model = ViewModelProviders.of(this).get(PlacesViewModel.class);

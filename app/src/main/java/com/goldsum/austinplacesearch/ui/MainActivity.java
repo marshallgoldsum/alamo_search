@@ -35,12 +35,9 @@ public class MainActivity extends AppCompatActivity implements PlaceResultViewHo
 
 
         mFab = findViewById(R.id.map_button);
-        mFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mapIntent = new Intent(MainActivity.this, PlacesMapActivity.class);
-                startActivity(mapIntent);
-            }
+        mFab.setOnClickListener(view -> {
+            Intent mapIntent = new Intent(MainActivity.this, PlacesMapActivity.class);
+            startActivity(mapIntent);
         });
 
         EditText editText = findViewById(R.id.search_place);
@@ -78,15 +75,11 @@ public class MainActivity extends AppCompatActivity implements PlaceResultViewHo
     @Override
     protected void onResume() {
         super.onResume();
-        mPlacesViewModel.getVenues().observe(this, placeResults -> {
-            mResultsAdapter.setPlaces(placeResults);
-        });
+        mPlacesViewModel.getVenues().observe(this, placeResults -> mResultsAdapter.setPlaces(placeResults));
     }
 
     @Override
     public void onFavoriteClicked(String placeId) {
-        mPlacesViewModel.toggleFavorite(placeId).observe(this, placeResult -> {
-            mResultsAdapter.updatePlace(placeResult);
-        });
+        mPlacesViewModel.toggleFavorite(placeId).observe(this, placeResult -> mResultsAdapter.updatePlace(placeResult));
     }
 }

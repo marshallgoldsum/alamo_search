@@ -1,10 +1,4 @@
 <resources>
-    <string name="foursquare_client_id" templateMergeStrategy="preserve" translatable="false">
-        KERDYQH4KX3CD3YT4324CZKSEVTNGKOTUDPCNRJRMQSG4CEX
-    </string>
-    <string name="foursquare_client_secret" templateMergeStrategy="preserve" translatable="false">
-        33GEJISZWVHXJROXPWK2WMDEDNXHRB2Y3BDQTWN344DVXXWG
-    </string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
         AIzaSyA1PWaieIaoykLV-FiQViK0d59DoPBMtSk
     </string>

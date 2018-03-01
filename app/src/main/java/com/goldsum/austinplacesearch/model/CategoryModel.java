@@ -2,6 +2,7 @@ package com.goldsum.austinplacesearch.model;
 
 /**
  * Created by marshallgoldsum on 2/26/18.
+ * POJO for a Foursquare category
  */
 
 public class CategoryModel {

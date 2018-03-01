@@ -56,19 +56,11 @@ public class PlaceResultViewHolder extends RecyclerView.ViewHolder{
         mDistanceToAustinCenter.setText(getContext().getString(R.string.distance, place.getDistanceFromSearchPoint()));
         mCategory.setText(place.getCategory());
 
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                launchDetailActivity(place);
-            }
-        });
+        itemView.setOnClickListener(v -> launchDetailActivity(place));
 
-        mFavoriteIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null){
-                    listener.onFavoriteClicked(place.getId());
-                }
+        mFavoriteIcon.setOnClickListener(v -> {
+            if (listener != null){
+                listener.onFavoriteClicked(place.getId());
             }
         });
         if (place.isFavorite()){

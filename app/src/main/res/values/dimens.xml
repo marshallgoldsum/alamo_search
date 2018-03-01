@@ -1,9 +1,5 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="bounds_padding">12dp</dimen>
-    <dimen name="shrine_toolbar_offset_start">10dp</dimen>
-    <dimen name="shrine_toolbar_offset_top">10dp</dimen>
-    <dimen name="shrine_toolbar_image_offset_top">12dp</dimen>
-    <dimen name="shrine_toolbar_collapsed_height">48dp</dimen>
     <dimen name="category_icon_size">48dp</dimen>
 </resources>

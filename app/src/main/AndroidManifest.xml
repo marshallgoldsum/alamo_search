@@ -44,7 +44,7 @@
 
         <activity
             android:name=".ui.PlacesMapActivity"
-            android:label="@string/title_activity_places_map"></activity>
+            android:label="@string/title_activity_places_map"/>
     </application>
 
 </manifest>

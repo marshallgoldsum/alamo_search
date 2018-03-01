@@ -9,7 +9,6 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -51,24 +50,16 @@ public class DetailsActivity extends AppCompatActivity {
         mPlaceName = findViewById(R.id.details_place_name);
         mPlaceCategory = findViewById(R.id.details_place_category);
         mPlaceUrl = findViewById(R.id.details_place_url);
-        mPlaceUrl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mPlaceUrl.getText() != null) {
-                    launchBrowserIntent();
-                }
+        mPlaceUrl.setOnClickListener(v -> {
+            if (mPlaceUrl.getText() != null) {
+                launchBrowserIntent();
             }
         });
         mMapImage = findViewById(R.id.details_map_image);
         mFavoriteIcon = findViewById(R.id.details_favorite_icon);
-        mFavoriteIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                detailsViewModel.updateFavorite().observe(DetailsActivity.this, placeResult -> {
-                    updatePlaceUI(placeResult);
-                });
-            }
-        });
+        mFavoriteIcon.setOnClickListener(v -> detailsViewModel.updateFavorite().observe(DetailsActivity.this, placeResult -> {
+            updatePlaceUI(placeResult);
+        }));
 
         mPlaceId = getIntent().getStringExtra(PLACE_ID_EXTRA);
 
