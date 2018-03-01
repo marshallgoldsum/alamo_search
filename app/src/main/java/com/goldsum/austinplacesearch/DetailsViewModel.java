@@ -8,6 +8,7 @@ import com.goldsum.austinplacesearch.model.PlaceResult;
 
 /**
  * Created by marshallgoldsum on 2/27/18.
+ * This ViewModel handles the data for the DetailsActivity.
  */
 
 public class DetailsViewModel extends ViewModel {
@@ -26,12 +27,12 @@ public class DetailsViewModel extends ViewModel {
         return mPlace;
     }
 
-    public boolean updateFavorite()
+    public LiveData<PlaceResult> updateFavorite()
     {
-        PlaceResult placeResult = mPlace.getValue();
-        boolean favorite = placeResult.toggleFavorite();
-        mPlace.postValue(placeResult);
-//        PlaceRepository.getInstance().updateFavorite(mPlace.getValue().getId(), favorite);
-        return favorite;
+        PlaceResult placeResult = PlaceRepository.getInstance().updateFavorite(mPlace.getValue().getId());
+        if (placeResult != null){
+            mPlace.setValue(placeResult);
+        }
+        return mPlace;
     }
 }

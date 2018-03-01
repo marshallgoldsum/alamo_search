@@ -1,4 +1,4 @@
-package com.goldsum.austinplacesearch;
+package com.goldsum.austinplacesearch.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,11 +9,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.goldsum.austinplacesearch.GlideApp;
+import com.goldsum.austinplacesearch.R;
 import com.goldsum.austinplacesearch.model.PlaceResult;
-import com.goldsum.austinplacesearch.ui.DetailsActivity;
 
 /**
  * Created by marshallgoldsum on 2/26/18.
+ * The ViewHolder that constructs the individual cards shown in MainActivity
  */
 
 public class PlaceResultViewHolder extends RecyclerView.ViewHolder{
@@ -50,7 +52,7 @@ public class PlaceResultViewHolder extends RecyclerView.ViewHolder{
     public void bindModel(final PlaceResult place, final PlaceCardActionListener listener)
     {
         mName.setText(place.getName());
-        GlideApp.with(getContext()).asBitmap().load(place.getIconUrl()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher_round).into(mPlaceIcon);
+        GlideApp.with(getContext()).asBitmap().load(place.getIconUrl()).into(mPlaceIcon);
         mDistanceToAustinCenter.setText(getContext().getString(R.string.distance, place.getDistanceFromSearchPoint()));
         mCategory.setText(place.getCategory());
 
@@ -64,16 +66,15 @@ public class PlaceResultViewHolder extends RecyclerView.ViewHolder{
         mFavoriteIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO make the click update the model
                 if (listener != null){
                     listener.onFavoriteClicked(place.getId());
                 }
             }
         });
         if (place.isFavorite()){
-            mFavoriteIcon.setImageResource(android.R.drawable.btn_plus);
+            mFavoriteIcon.setImageResource(R.drawable.ic_favorite);
         } else {
-            mFavoriteIcon.setImageResource(android.R.drawable.btn_minus);
+            mFavoriteIcon.setImageResource(R.drawable.ic_favorite_border);
         }
     }
 

@@ -64,7 +64,7 @@ public class PlaceResult{
         return "PlaceResult{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", url='" + url + '\'' +
+                ", favorite='" + favorite + '\'' +
                 '}';
     }
 

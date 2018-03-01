@@ -20,6 +20,7 @@ import retrofit2.http.Query;
 
 /**
  * Created by marshallgoldsum on 2/27/18.
+ * Singleton manager class for all of our network requests.
  */
 
 public class PlacesNetworkManager {
@@ -40,12 +41,6 @@ public class PlacesNetworkManager {
                                                 @Query("query") String query,
                                                 @Query("ll") String latlng,
                                                 @Query("v") String version);
-        // A request to search for nearby coffee shop recommendations via the Foursquare API.
-        @GET("search/recommendations?v=20161101&intent=coffee")
-        Call<PlaceResultsResponse> searchVenues(@Query("client_id") String clientID,
-                                          @Query("client_secret") String clientSecret,
-                                          @Query("ll") String ll,
-                                          @Query("llAcc") double llAcc);
     }
 
     public static PlacesNetworkManager getInstance(){
@@ -83,10 +78,12 @@ public class PlacesNetworkManager {
         placesAPI.searchVenues(CLIENT_ID, CLIENT_SECRET, query, "30.2672,-97.7431", VERSION_DATE).enqueue(responseCallback);
     }
 
+    //POJO to handle the conversion from Foursquare's JSON
     public static class FoursquareResponse {
         PlaceResultsResponse response;
     }
 
+    //POJO to handle the conversion from Foursquare's JSON
     public static class PlaceResultsResponse {
         // A group object within the response.
         List<PlaceResult> venues = new ArrayList<>();

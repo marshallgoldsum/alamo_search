@@ -27,7 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.DetailsActivity" />
+        <activity android:name=".ui.DetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/details_title"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

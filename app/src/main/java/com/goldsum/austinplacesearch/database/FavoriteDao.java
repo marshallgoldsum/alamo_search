@@ -1,4 +1,4 @@
-package com.goldsum.austinplacesearch;
+package com.goldsum.austinplacesearch.database;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
@@ -9,6 +9,7 @@ import com.goldsum.austinplacesearch.model.Favorite;
 
 /**
  * Created by marshallgoldsum on 2/28/18.
+ * Room architecture Dao (Database Access Object) for interacting with FavoriteDatabase
  */
 
 @Dao

@@ -4,7 +4,6 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.widget.Toast;
 
 import com.goldsum.austinplacesearch.PlacesViewModel;
 import com.goldsum.austinplacesearch.R;
@@ -20,6 +19,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.List;
 
+/**
+ * Created by marshallgoldsum on 2/27/18.
+ * Activity to show all of the queried places on a map allowing a user to select one to go view
+ * the details of a particular place
+ */
 public class PlacesMapActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -53,9 +57,10 @@ public class PlacesMapActivity extends FragmentActivity implements OnMapReadyCal
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(Marker marker) {
-                Toast.makeText(getApplicationContext(), marker.getId(), Toast.LENGTH_SHORT).show();
-                String placeId = (String)marker.getTag();
-                launchDetailsActivity(placeId);
+                if (marker.getTag() != null) {
+                    String placeId = (String) marker.getTag();
+                    launchDetailsActivity(placeId);
+                }
             }
         });
         PlacesViewModel model = ViewModelProviders.of(this).get(PlacesViewModel.class);

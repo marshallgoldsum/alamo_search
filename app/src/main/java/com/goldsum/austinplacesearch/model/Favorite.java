@@ -35,4 +35,12 @@ public class Favorite {
     public void setFavorite(boolean favorite) {
         this.favorite = favorite;
     }
+
+    @Override
+    public String toString() {
+        return "Favorite{" +
+                "id='" + id + '\'' +
+                ", favorite=" + favorite +
+                '}';
+    }
 }

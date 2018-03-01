@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Created by marshallgoldsum on 2/27/18.
+ * This is the access point to the data model for MainActivity and PlacesMapActivity
  */
 
 public class PlacesViewModel extends ViewModel {
