@@ -80,7 +80,6 @@ public class DetailsActivity extends AppCompatActivity {
     }
 
     private void updatePlaceUI(PlaceResult placeResult) {
-        // update UI
         mCollapsingToolbar.setTitle(placeResult.getName());
         mPlaceName.setText(placeResult.getName());
         mPlaceCategory.setText(placeResult.getCategory());
